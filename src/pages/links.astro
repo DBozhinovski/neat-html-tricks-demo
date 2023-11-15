@@ -1,0 +1,35 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Neat HTML tricks - Links</title>
+	</head>
+	<body>
+		<h1>Links</h1>
+    <h2>Basic</h2>
+		<ul>
+			<li>Basic link: <a href="/">I go back to the index</a></li>
+      <li>Anchor link: <a href="#index">I scroll to the bottom</a></li>
+      <li>Mail link: <a href="mailto:user@example.com">I send emails</a></li>
+		</ul>
+    <h2>Data</h2>
+		<ul>
+			<li>Data link: <a href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
+        //8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" download>Embedded image data</a> <br />
+        For reference, this can also be used as an image <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
+        //8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" />
+      </li>
+		</ul>
+    <h2>Code</h2>
+		<ul>
+			<li>JS code: <a href="javascript:alert('Hello world!')">Say hello world!</a></li>
+		</ul>
+    <h2>Apps / intents / protocols / deep links</h2>
+		<ul>
+			<li>Torrent: <a href="magnet:?xt=urn:btih:123456789">Totally legal, I swear 😉</a></li>
+		</ul>
+    <a href="/" id="index" style="margin-top: 1400px; display: block;">Index</a>
+	</body>
+</html>

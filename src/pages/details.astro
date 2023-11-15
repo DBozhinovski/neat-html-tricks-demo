@@ -1,0 +1,140 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Neat HTML tricks - Details</title>
+
+    <style>
+      /* REGULAR FANCY */
+
+      .fancy {
+        background: #efefef;
+        border: 1px dashed #ccc;
+        border-radius: 4px;
+      }
+
+      .fancy summary {
+        font-family: sans;
+        font-size: 20px;
+        padding: 6px;
+        box-shadow: 0 2px 4px 1px #ddd;
+        cursor: pointer;
+      }
+
+      .fancy summary:hover {
+        color: #555;
+      }
+
+      /* REALLY FANCY */
+
+      .custom-details {
+        border: 1px solid #ddd;
+        padding: 10px;
+        background-color: #f9f9f9;
+        overflow: hidden;
+        transition: max-height 1s ease;
+      }
+
+      .custom-details[open] .custom-summary::after {
+        content: "▲";
+        transform: rotate(180deg);
+      }
+
+      .custom-details .custom-summary::after {
+        content: "▼";
+        float: right;
+        transition: transform 0.2s ease;
+      }
+
+      .custom-summary {
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .details-content {
+        margin-top: 10px;
+        padding: 5px;
+        border-top: 1px solid #ddd;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1s ease;
+      }
+
+      .custom-details .custom-summary::marker {
+        content: '';
+      }
+
+      .custom-details[open] .details-content {
+          max-height: 500px;
+      }
+    </style>
+	</head>
+	<body>
+		<h1>Details</h1>
+   
+    <h2>Basic</h2>
+
+    <details>
+      <summary>Click me</summary>
+      <p>Here is some content</p>
+    </details>
+
+    <h2>Styled</h2>
+
+    <details class="fancy">
+      <summary>Click me</summary>
+      <p>Here is some content</p>
+    </details>
+
+    <h2>Really fancy</h2>
+
+    <details class="custom-details">
+      <summary class="custom-summary">Click to view more information</summary>
+      <div class="details-content">
+          <p>This is the detailed information that was hidden. It can include various HTML elements.</p>
+          <ul>
+              <li>Detail Item 1</li>
+              <li>Detail Item 2</li>
+              <li>Detail Item 3</li>
+          </ul>
+      </div>
+    </details>
+    <details class="custom-details">
+      <summary class="custom-summary">Click to view more information</summary>
+      <div class="details-content">
+          <p>This is the detailed information that was hidden. It can include various HTML elements.</p>
+          <ul>
+              <li>Detail Item 1</li>
+              <li>Detail Item 2</li>
+              <li>Detail Item 3</li>
+          </ul>
+      </div>
+    </details>
+    <details class="custom-details">
+      <summary class="custom-summary">Click to view more information</summary>
+      <div class="details-content">
+          <p>This is the detailed information that was hidden. It can include various HTML elements.</p>
+          <ul>
+              <li>Detail Item 1</li>
+              <li>Detail Item 2</li>
+              <li>Detail Item 3</li>
+          </ul>
+      </div>
+    </details>
+    <details class="custom-details">
+      <summary class="custom-summary">Click to view more information</summary>
+      <div class="details-content">
+          <p>This is the detailed information that was hidden. It can include various HTML elements.</p>
+          <ul>
+              <li>Detail Item 1</li>
+              <li>Detail Item 2</li>
+              <li>Detail Item 3</li>
+          </ul>
+      </div>
+    </details>
+
+    <a href="/" id="index" style="margin-top: 80px; display: block;">Index</a>
+	</body>
+</html>

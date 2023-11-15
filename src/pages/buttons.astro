@@ -1,0 +1,31 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Neat HTML tricks - Buttons</title>
+	</head>
+	<body>
+		<h1>Buttons</h1>
+    <h2>In forms</h2>
+		
+
+    <form action="/buttons" method="POST">
+      <button>Submit</button>
+      <button type="button">I'm not gonna do anything</button>
+
+      <button formaction="/" formmethod="get">Submits to index with get</button>
+    </form>
+
+    <h2>Outside forms</h2>
+		
+
+    <form action="/buttons" method="POST" id="form">
+      I'm a form without submit buttons
+    </form>
+
+    <button form="form">I'll submit outside of the form</button>
+    <a href="/" id="index" style="margin-top: 80px; display: block;">Index</a>
+	</body>
+</html>

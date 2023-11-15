@@ -1,0 +1,43 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Neat HTML tricks - Web Components</title>
+	</head>
+	<body>
+		<h1>Web Components</h1>
+    
+    <h2>The template tag</h2>
+		
+    <!-- I'm invisible -->
+    <h3>Invisible tag here</h3>
+    <template id="custom-component">
+      <li>
+        <h1>title</h1>
+        <p>description</p>
+      </li>
+    </template>
+
+    <!-- List basis -->
+    <div id="container" style="margin-top: 130px;">
+      <h3>This will be filled up</h3>
+      <ul id="list"></ul>
+    </div>
+
+    <a href="/" id="index" style="margin-top: 80px; display: block;">Index</a>
+    
+    <script>
+      const template = document.getElementById("custom-component");
+      const clone = template.content.cloneNode(true); // true means deep clone
+
+      clone.querySelector("h1").textContent = "My title";
+      clone.querySelector("p").textContent = "My description";
+
+      document.querySelector('#list').appendChild(clone);
+    </script>
+
+  </body>
+
+</html>

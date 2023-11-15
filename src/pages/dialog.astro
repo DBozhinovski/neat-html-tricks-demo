@@ -1,0 +1,129 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Neat HTML tricks - Dialog</title>
+    <style>
+      dialog.nojs {
+        display: block;
+      }
+  
+      dialog.nojs:not(:target):not([open]) {
+        display: none;
+      }
+
+      dialog#fancyDialog {
+        border: 2px solid #0078D7;
+        border-radius: 8px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      dialog#fancyDialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      #fancyDialog button {
+        background-color: #0078D7;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      #fancyDialog button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+	</head>
+	<body>
+		<h1>Dialog</h1>
+    
+    <h2>Invisible</h2>
+    <dialog>I'm not visible</dialog>
+
+    <h2>Visible</h2>
+    <dialog open>Now I'm visible</dialog>
+
+    <h2>Close a dialog without JavaScript</h2>
+
+    <dialog open>
+      <p>I'm a dialog. Close me using the button below.</p>
+      <form method="dialog">
+        <button>Close</button>
+      </form>
+    </dialog>
+
+    <h2>Opening and closing without JavaScript</h2>
+
+    <p>
+      <a href="#dialog">Open dialog</a>
+    </p>
+
+    <dialog id="dialog" class="nojs">
+      <h2>Dialog</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <a href="#!">Close</a>
+    </dialog>
+
+    <h2>Or, use some dead-simple JS calls to do the same in a saner way 🤷‍♂️</h2>
+
+    <button id="js-dialog-opener">Open dialog</button>
+
+    <dialog id="js-dialog">
+      <h2>Dialog</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <button id="js-dialog-closer">Close</a>
+    </dialog>
+
+    <h2>And yes, you can customize it</h2>
+
+    <button id="openDialog">Open Dialog</button>
+
+    <!-- Dialog -->
+    <dialog id="fancyDialog">
+        <h2>Custom Dialog</h2>
+        <p>This is a fancy dialog box!</p>
+        <button id="closeDialog">Close</button>
+    </dialog>
+
+
+    <a href="/" id="index" style="margin-top: 80px; display: block;">Index</a>
+	</body>
+  <script>
+    const dialog = document.getElementById('js-dialog');
+    const dialogCloser = document.getElementById('js-dialog-closer');
+    const dialogOpener = document.getElementById('js-dialog-opener');
+
+    dialogCloser.addEventListener('click', () => {
+      dialog.close();
+    });
+
+    dialogOpener.addEventListener('click', () => {
+      dialog.showModal(); // showModal opens as modal; show opens just as a dialog
+    });
+
+    // fancy dialog
+
+    document.getElementById('openDialog').addEventListener('click', function() {
+      document.getElementById('fancyDialog').showModal();
+    });
+
+    document.getElementById('closeDialog').addEventListener('click', function() {
+      document.getElementById('fancyDialog').close();
+    });
+  </script>
+</html>
+
+
